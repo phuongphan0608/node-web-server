@@ -21,12 +21,12 @@ app.use((req,res,next) =>{
 });
 
 // Setup Maintenance
-app.use((req,res,next)=>{
-  res.render('maintenance.hbs',{
-    pageTitle: 'Maintenance Page',
-    maintenanceMessage: 'The website is under construction'
-  })
-});
+// app.use((req,res,next)=>{
+//   res.render('maintenance.hbs',{
+//     pageTitle: 'Maintenance Page',
+//     maintenanceMessage: 'The website is under construction'
+//   })
+// });
 
 // Setup Public
 app.use(express.static(__dirname + '/public'));
@@ -52,6 +52,10 @@ app.get('/about', (req, res)=>{
     pageTitle: 'About Page',
     currentYear: new Date().getFullYear()
   });
+});
+
+app.get('/projects',(req,res)=>{
+  res.render('projects.hbs',{});
 });
 
 app.get ('/bad', (req, res)=>{
